@@ -1,8 +1,11 @@
 # Используем базовый образ Node.js
-FROM node:14
+FROM node:16
 
 # Устанавливаем рабочую директорию в контейнере
 WORKDIR /usr/src/app
+
+# Обновляем npm до последней версии
+RUN npm install -g npm@latest
 
 # Копируем package.json и package-lock.json
 COPY package*.json ./
@@ -13,7 +16,8 @@ RUN npm install
 # Копируем все файлы в рабочую директорию
 COPY . .
 
-
+# Копируем файл .env в рабочую директорию
+COPY .env .env
 
 # Указываем порт, который будет прослушивать приложение
 EXPOSE 5001
