@@ -1,11 +1,8 @@
-# Используем базовый образ Node.js
-FROM node:16
+# Используем базовый образ Node.js версии 18
+FROM node:18
 
 # Устанавливаем рабочую директорию в контейнере
 WORKDIR /usr/src/app
-
-# Обновляем npm до последней версии
-RUN npm install -g npm@latest
 
 # Копируем package.json и package-lock.json
 COPY package*.json ./
@@ -15,7 +12,6 @@ RUN npm install
 
 # Копируем все файлы в рабочую директорию
 COPY . .
-
 
 
 # Указываем порт, который будет прослушивать приложение
