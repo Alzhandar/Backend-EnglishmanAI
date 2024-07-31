@@ -16,7 +16,7 @@ COPY . .
 
 
 # Указываем порт, который будет прослушивать приложение
-EXPOSE 5001
+EXPOSE http://localhost:5001
 
 # Определяем команду для запуска приложения с увеличенным лимитом памяти
 CMD ["node", "--max-old-space-size=2048", "node_modules/.bin/ts-node", "src/index.ts"]
